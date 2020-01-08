@@ -1,0 +1,18 @@
+Luiz:
+	1 - ordem de esqueletos
+	2 - suga vida
+	3 - revive um personagem 
+	
+Fernando:
+	1 - Hook
+	2 - Team heal
+	3 - Stun em área
+
+Lucas:
+	1 - Buff 
+	2 - AA em área
+	3 - Stun em área
+
+Gabriel:
+	1 - Double hit
+	2 - dash
