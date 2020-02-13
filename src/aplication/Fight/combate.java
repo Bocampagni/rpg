@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import aplication.Fight.analise;
 
 import characters.character;
 
@@ -39,15 +40,10 @@ public class combate {
 					list1.get(soldier).ataca(choosen, list2, enemy, mana1);
 				}
 				Collections.sort(list2);
-				for(int i = 2; i > -1; i-- ){
-					try{
-						if(list2.get(i).getLife() <= 0) {
-							deathList.add(list2.get(i));
-							list2.remove(list2.get(i));
-						}
-					} catch (IndexOutOfBoundsException e) {						
-					}
-				}
+						
+				
+				analise.fight_analise(list2, deathList);
+				
 				if(list2.isEmpty()) {
 					System.out.println("You won");
 					break;
@@ -90,6 +86,7 @@ public class combate {
 			}
 		}
 	}
+
 	public static double getRandomDoubleBetweenRange(double min, double max){
 	    double x =  (Math.random()*((max-min)+1))+min;
 	    return x;

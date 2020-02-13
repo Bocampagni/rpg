@@ -16,3 +16,31 @@ Lucas:
 Gabriel:
 	1 - Double hit
 	2 - dash
+	
+		for(int i = 2; i > -1; i-- ){
+					try{
+						if(list2.get(i).getLife() <= 0) {
+							deathList.add(list2.get(i));
+							list2.remove(list2.get(i));
+						}
+					} catch (IndexOutOfBoundsException e) {						
+					}
+				}
+				if(list2.isEmpty()) {
+					System.out.println("You won");
+					break;
+				}
+				
+				
+				
+				
+				for(int i = 2; i > -1; i--) {
+					try {
+						if(list1.get(i).getLife() <= 0) {
+							deathList.add(list1.get(i));
+							list1.remove(list1.get(i));
+						}
+					} catch (IndexOutOfBoundsException e) {
+						System.out.println("\n");
+					}
+				}
