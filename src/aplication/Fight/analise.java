@@ -21,5 +21,16 @@ public class analise {
 		}
 				
 	}
+	
+	
+	public static void deathListAnalise(List<character> deathList) {
+		
+		System.out.println("Death List:");
+		for(int i = 0; i < deathList.size(); i++) {
+			deathList.get(i).setLife(30);
+			System.out.println(deathList.get(i).getName());
+		}
+		
+	}
 
 }

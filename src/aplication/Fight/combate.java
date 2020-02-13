@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
-import aplication.Fight.analise;
 
 import characters.character;
 
@@ -32,13 +31,8 @@ public class combate {
 				
 				message.enemyStatus(list1, list2);
 				int enemy = sc.nextInt();
+				ataca.atack(list1,list2,deathList,soldier, choosen, mana1, enemy);
 				
-				if(list1.get(soldier).getId() == 002) {
-					list1.get(soldier).ataca(choosen, list2, enemy, mana1, deathList, list1, (int) getRandomDoubleBetweenRange(0, deathList.size()-1));
-				}
-				else {
-					list1.get(soldier).ataca(choosen, list2, enemy, mana1);
-				}
 				Collections.sort(list2);
 						
 				
@@ -53,37 +47,21 @@ public class combate {
 				int enemyskill = (int) getRandomDoubleBetweenRange(0, list2.size()-1);
 				int enemytarget = (int) getRandomDoubleBetweenRange(0, list1.size()-1);
 				
-				//alte fut
-				if(list2.get(enemysoldier).getId() == 002) {
-					list2.get(enemysoldier).ataca(enemyskill, list1, enemytarget, mana2, deathList, list2, (int) getRandomDoubleBetweenRange(0, deathList.size()-1));
-				}
-				else {
-					list1.get(enemysoldier).ataca(enemyskill, list1, enemytarget, mana2);
-				}
+				ataca.atack(list2, list1,  deathList, enemysoldier, enemyskill, mana1, enemytarget);
 								
 				
 				Collections.sort(list1);
-				for(int i = 2; i > -1; i--) {
-					try {
-						if(list1.get(i).getLife() <= 0) {
-							deathList.add(list1.get(i));
-							list1.remove(list1.get(i));
-						}
-					} catch (IndexOutOfBoundsException e) {
-						System.out.println("\n");
-					}
-				}
+				analise.fight_analise(list1, deathList);
+				
 				if(list1.isEmpty()) {
 					System.out.println("You lost");
 					break;
 				}
 			}
 			
-			System.out.println("Death List:");
-			for(int i = 0; i < deathList.size(); i++) {
-				deathList.get(i).setLife(30);
-				System.out.println(deathList.get(i).getName());
-			}
+			
+			
+			analise.deathListAnalise(deathList);
 		}
 	}
 
