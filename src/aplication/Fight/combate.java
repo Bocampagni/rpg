@@ -14,7 +14,7 @@ public class combate {
 	public static int mana2 = 3;
 	public static int turn = 1;
 		
-	public static void start(List<character> list1, List<character> list2) {
+	public static Integer start(List<character> list1, List<character> list2) {
 		Scanner sc = new Scanner(System.in);
 		List<character> deathList = new ArrayList<>();
 		
@@ -40,7 +40,8 @@ public class combate {
 				
 				if(list2.isEmpty()) {
 					System.out.println("You won");
-					break;
+					
+					return 1;
 				}
 				
 				int enemysoldier = (int) getRandomDoubleBetweenRange(0, list2.size()-1);
@@ -55,7 +56,7 @@ public class combate {
 				
 				if(list1.isEmpty()) {
 					System.out.println("You lost");
-					break;
+					return 0;
 				}
 			}
 			
